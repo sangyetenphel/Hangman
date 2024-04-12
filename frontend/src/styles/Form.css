@@ -1,0 +1,35 @@
+.form-container {
+    border: 1px solid black;
+    padding: 20px;
+    margin: 20px;
+}
+
+.form-container div {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.form-container div label {
+    min-width: 50px;
+    font-size: 20px;
+    margin-right: 1rem;
+}
+
+.form-container div input {
+    height: 20px;
+    width: 100%;
+}
+
+.form-container button {
+    padding: 20px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.send-button {
+    background-color: aqua;
+}
+
+.link-button {
+    background-color: rgb(90, 255, 90);
+}
