@@ -2,6 +2,9 @@ import { FormEvent, useState } from "react"
 import axios from "axios"
 import "../styles/Form.css"
 
+const apiURL = '/choreo-apis/hangman/backend/hangman-be2/v1.0'
+// const apiURL = 'http://127.0.0.1:8000/api/'
+
 function copyToClipboard(link: string): void {
     navigator.clipboard.writeText(link);
     alert('Link copied to clipboard!');
@@ -15,7 +18,7 @@ function WordForm() {
 
     const handleSubmit = (e: FormEvent<HTMLFormElement>): void => {
         e.preventDefault();
-        axios.post("http://127.0.0.1:8000/api/", {name, word, hint})
+        axios.post(apiURL, {name, word, hint})
             .then((response) => {
                 if (response.status === 201) {
                     alert("Word Created!")
