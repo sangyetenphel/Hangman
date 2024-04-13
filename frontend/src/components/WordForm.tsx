@@ -3,8 +3,7 @@ import {AxiosResponse, AxiosError} from "axios"
 import "../styles/Form.css"
 import api from "../api"
 
-// const apiURL = '/choreo-apis/hangman/backend/hangman-be2/v1.0'
-const apiURL = 'http://127.0.0.1:8000/api/'
+const apiURL = '/choreo-apis/hangman/backend/hangman-be2/v1.0'
 
 function copyToClipboard(link: string): void {
     navigator.clipboard.writeText(link);
