@@ -3,7 +3,7 @@ import '../styles/Home.css'
 
 function Home() {
     const navigate = useNavigate();
-    const handleClick = (mode) => {
+    const handleClick = (mode: 'offline' | 'online'): void => {
         if (mode === 'offline') {
             navigate('/hangman')
         } else {

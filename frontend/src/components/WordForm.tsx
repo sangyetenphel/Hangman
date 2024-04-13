@@ -1,19 +1,19 @@
-import { useState } from "react"
+import { FormEvent, useState } from "react"
 import axios from "axios"
 import "../styles/Form.css"
 
-function copyToClipboard(link) {
+function copyToClipboard(link: string): void {
     navigator.clipboard.writeText(link);
     alert('Link copied to clipboard!');
 }
 
 function WordForm() {
-    const [name, setName] = useState("")
-    const [word, setWord] = useState("")
-    const [hint, setHint] = useState("")
-    const [linkToShare, setLinkToShare] = useState("")
+    const [name, setName] = useState<string>("")
+    const [word, setWord] = useState<string>("")
+    const [hint, setHint] = useState<string>("")
+    const [linkToShare, setLinkToShare] = useState<string>("")
 
-    const handleSubmit = (e) => {
+    const handleSubmit = (e: FormEvent<HTMLFormElement>): void => {
         e.preventDefault();
         axios.post("http://127.0.0.1:8000/api/", {name, word, hint})
             .then((response) => {
@@ -33,7 +33,7 @@ function WordForm() {
             <form onSubmit={handleSubmit}>
                 <div>
                     <label htmlFor="name">Name: </label>
-                    <input type="text" id="name" value={name} placeholder="Name" onChange={(e) => setName(e.target.value)} variant="outlined"/>
+                    <input type="text" id="name" value={name} placeholder="Name" onChange={(e) => setName(e.target.value)}/>
                 </div>
                 <div>
                     <label htmlFor="word">Word: </label>

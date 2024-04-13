@@ -14,7 +14,7 @@ export function HangmanWord({guessedLetters, wordToGuess, reveal = false}: Hangm
             textTransform: "uppercase",
             fontFamily: "monospace",
         }}>
-            {wordToGuess.split("").map((letter, index) => (
+            {wordToGuess.split("").map((letter) => (
                 <span style={{ borderBottom: ".1em solid black"}}>
                     <span style={{ visibility: guessedLetters.includes(letter) || reveal ? "visible" : "hidden",
                         color: !guessedLetters.includes(letter) && reveal ? "red" : "black",
