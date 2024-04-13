@@ -1,6 +1,7 @@
 import { FormEvent, useState } from "react"
-import axios from "axios"
+import {AxiosResponse, AxiosError} from "axios"
 import "../styles/Form.css"
+import api from "../api"
 
 // const apiURL = '/choreo-apis/hangman/backend/hangman-be2/v1.0'
 const apiURL = 'http://127.0.0.1:8000/api/'
@@ -18,18 +19,18 @@ function WordForm() {
 
     const handleSubmit = (e: FormEvent<HTMLFormElement>): void => {
         e.preventDefault();
-        axios.post(apiURL, {name, word, hint})
-            .then((response) => {
+        api.post(apiURL, {name, word, hint})
+            .then((response: AxiosResponse) => {
                 if (response.status === 201) {
                     alert("Word Created!")
                     const id = response.data.id
-                    // const generatedLink = `http://localhost:5173/hangman/${id}`
-                    const generatedLink = `https://82945370-9f6e-4a8c-89cd-30e7478680b7.e1-us-cdp-2.choreoapps.dev/${id}`
+                    const generatedLink = `http://localhost:5173/hangman/${id}`
+                    // const generatedLink = `https://82945370-9f6e-4a8c-89cd-30e7478680b7.e1-us-cdp-2.choreoapps.dev/${id}`
                     setLinkToShare(generatedLink)
                 }
                 else alert("Failed to generate the word!")
             })
-            .catch((error) => alert(error))
+            .catch((error: AxiosError) => alert(error))
     }
 
     return (
