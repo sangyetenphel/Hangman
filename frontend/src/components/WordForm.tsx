@@ -3,8 +3,6 @@ import {AxiosResponse, AxiosError} from "axios"
 import "../styles/Form.css"
 import api from "../api"
 
-const apiURL = '/choreo-apis/hangman/backend/hangman-be2/v1.0'
-
 function copyToClipboard(link: string): void {
     navigator.clipboard.writeText(link);
     alert('Link copied to clipboard!');
@@ -18,7 +16,7 @@ function WordForm() {
 
     const handleSubmit = (e: FormEvent<HTMLFormElement>): void => {
         e.preventDefault();
-        api.post(apiURL, {name, word, hint})
+        api.post('/api/', {name, word, hint})
             .then((response: AxiosResponse) => {
                 if (response.status === 201) {
                     alert("Word Created!")
