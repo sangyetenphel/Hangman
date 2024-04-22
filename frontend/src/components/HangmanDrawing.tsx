@@ -1,5 +1,7 @@
+import React from "react"
+
 const HEAD = (
-    <div style={{
+    <div key="head" style={{
         width: "50px",
         height: "50px",
         borderRadius: "100%",
@@ -11,7 +13,7 @@ const HEAD = (
 )
 
 const BODY = (
-    <div style={{
+    <div key="body" style={{
         width: "10px",
         height: "100px",
         background: "black",
@@ -22,7 +24,7 @@ const BODY = (
 )
 
 const RIGHT_ARM = (
-    <div style={{
+    <div key="right-arm" style={{
         width: "100px",
         height: "10px",
         background: "black",
@@ -35,7 +37,7 @@ const RIGHT_ARM = (
 )
 
 const LEFT_ARM = (
-    <div style={{
+    <div key="left-arm" style={{
         width: "100px",
         height: "10px",
         background: "black",
@@ -48,7 +50,7 @@ const LEFT_ARM = (
 )
 
 const RIGHT_LEG = (
-    <div style={{
+    <div key="right-leg" style={{
         width: "100px",
         height: "10px",
         background: "black",
@@ -61,7 +63,7 @@ const RIGHT_LEG = (
 )
 
 const LEFT_LEG = (
-    <div style={{
+    <div key="left-leg" style={{
         width: "100px",
         height: "10px",
         background: "black",
@@ -82,7 +84,11 @@ type HangmanDrawingProps = {
 export function HangmanDrawing({numberOfGuesses}: HangmanDrawingProps) {
     return (
         <div style={{ position: "relative"}}>
-            {BODY_PARTS.slice(0, numberOfGuesses)}
+            {BODY_PARTS.slice(0, numberOfGuesses).map((part, index) => (
+                <React.Fragment key={index}>
+                    {part}
+                </React.Fragment>
+            ))}
             <div
                 style={{
                     height: "50px",

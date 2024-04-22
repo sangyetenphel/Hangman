@@ -52,6 +52,7 @@ function HangmanGame() {
 
         e.preventDefault()
         addGuessedLetter(key)
+        console.log("guessed letters", guessedLetters)
     }
 
     document.addEventListener("keypress", handler)

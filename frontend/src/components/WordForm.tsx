@@ -21,8 +21,8 @@ function WordForm() {
                 if (response.status === 201) {
                     alert("Word Created!")
                     const id = response.data.id
-                    // const generatedLink = `http://localhost:5173/hangman/${id}`
-                    const generatedLink = `https://82945370-9f6e-4a8c-89cd-30e7478680b7.e1-us-cdp-2.choreoapps.dev/hangman/${id}`
+                    const generatedLink = `http://localhost:5173/hangman/${id}`
+                    // const generatedLink = `https://82945370-9f6e-4a8c-89cd-30e7478680b7.e1-us-cdp-2.choreoapps.dev/hangman/${id}`
                     setLinkToShare(generatedLink)
                 }
                 else alert("Failed to generate the word!")

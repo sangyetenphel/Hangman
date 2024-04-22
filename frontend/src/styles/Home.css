@@ -1,17 +1,24 @@
-.title {
-    margin-top: 30px;
-    text-align: center;
+* {
+    margin: 0;
+    padding: 0;
 }
-
 .container {
     margin: 10px;
     justify-content: center;
+    height: 100vh;
+    background-color: aqua;
+    overflow: hidden;
+}
+
+.title {
+    /* margin-top: 30px; */
+    text-align: center;
 }
 
 .offline-online-container {
     display: flex;
-    max-width: 100vw;
-    min-height: 80vh;
+    /* max-width: 100vw; */
+    /* min-height: 80%; */
 }
 
 .offline-online-container div {
@@ -19,7 +26,7 @@
     width: 50%;
     display: flex;
     flex-direction: column;
-    padding: 25% 15px;
+    /* padding: 25% 15px; */
 }
 
 .offline-online-container button {
