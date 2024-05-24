@@ -20,7 +20,7 @@ function HangmanGame() {
             axios.get(`http://127.0.0.1:8000/hangman/${id}`)
             .then(response => {
                 setWordtoGuess(response.data.word)
-                console.log(response.data)
+                console.log("hererer", response.data)
             })
         }
         else {

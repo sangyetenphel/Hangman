@@ -6,9 +6,12 @@ from django.http import JsonResponse
 # Create your views here.
 def hangman(request, id):
     word = get_object_or_404(Word, pk=id)
+    print(word.name)
+    print(word.word)
+    print(word.hint)
     word = {
-        'name': word.name,
-        # 'word': word.word,
+        # 'name': word.name,
+        'word': word.word,
         # 'hint': word.hint
     }
     return JsonResponse(word)
