@@ -1,7 +1,5 @@
 import axios from "axios"
-
-// const apiUrl = '/choreo-apis/hangman/backend/hangman-be2/v1.0'
-const apiUrl = 'http://backend-3382678646:8000/'
+const apiUrl = '/choreo-apis/hangman/backend/hangman-be2/v1'
 
 const api = axios.create({
     baseURL: import.meta.env.VITE_API_URL ? import.meta.env.VITE_API_URL: apiUrl,
