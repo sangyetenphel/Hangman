@@ -33,25 +33,28 @@ function WordForm() {
     return (
         <div className="form-container">
             <form onSubmit={handleSubmit}>
+                <h3>Write a word to share with your friends!</h3>
                 <div>
-                    <label htmlFor="name">Name: </label>
-                    <input type="text" id="name" value={name} placeholder="Name" onChange={(e) => setName(e.target.value)}/>
+                    {/* <label htmlFor="name">Name: </label> */}
+                    {/* <input type="text" id="name" value={name} placeholder="Name" onChange={(e) => setName(e.target.value)}/> */}
                 </div>
                 <div>
-                    <label htmlFor="word">Word: </label>
+                    {/* <label htmlFor="word">Word: </label> */}
                     <input type="text" id="word" value={word} placeholder="Word" onChange={(e) => setWord(e.target.value)}/>
                 </div>
                 <div>
-                    <label htmlFor="hint">Hint: </label>
-                    <input type="text" id="hint" value={hint} placeholder="Hint" onChange={(e) => setHint(e.target.value)}/>
+                    {/* <label htmlFor="hint">Hint: </label> */}
+                    {/* <input type="text" id="hint" value={hint} placeholder="Hint" onChange={(e) => setHint(e.target.value)}/> */}
                 </div>
-                <button className="send-button" type="submit">Send</button>
+                <div className="button-container">
+                    <button className="send-button" type="submit">Generate Word</button>
+                </div>
             </form>
 
             {linkToShare && (
-                <div>
+                <div className="generated-link">
                 {/* <p>{linkToShare}</p> */}
-                <button className="link-button" onClick={() => copyToClipboard(linkToShare)}>Copy Link</button>
+                    <a onClick={() => copyToClipboard(linkToShare)}>Click here to copy the link to share with your friends!</a>
                 </div>
             )}
         </div>

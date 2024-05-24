@@ -1,0 +1,30 @@
+.hangman-game-container {
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin: 0 auto;
+    align-items: center;
+    background-color: black;
+    min-width: 100%;
+    min-height: 100vh;
+    justify-content: center;
+    padding: 0 50px;
+    align-items: center;
+}
+
+.hangman-word-container {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.hangman-drawing {
+    margin-right: 20%;
+}
+
+.keyboard {
+    text-align: center;
+    padding: 0 3.5%;
+}

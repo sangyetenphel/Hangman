@@ -1,7 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+
 .form-container {
-    border: 1px solid black;
-    padding: 20px;
-    margin: 20px;
+    border: 1px solid white;
+    padding: 30px;
+    margin-top: 10%;
+    font-family: 'Source Code Pro', monospace;
+    color: white;
+    width: 60%;
+    border-radius: 10px;
+    box-shadow: rgb(255, 255, 255) 0px 7px 29px 0px;
+}
+
+.form-container h3 {
+    text-align: center;
+    /* margin-bottom: 20px; */
+    padding-bottom: 20px;
+    font-size: 26px;
+    line-height: 1.5;
+    text-decoration: underline;
 }
 
 .form-container div {
@@ -9,27 +26,49 @@
     margin-bottom: 20px;
 }
 
-.form-container div label {
+.form-container label {
     min-width: 50px;
-    font-size: 20px;
     margin-right: 1rem;
+    font-size: 26px;
 }
 
+
 .form-container div input {
-    height: 20px;
+    height: 50px;
     width: 100%;
+    border: 1px solid white;
+    /* text-align: center; */
+    padding-left: 20px;
+    font-size: large;
+    /* letter-spacing: 2px; */
 }
 
 .form-container button {
     padding: 20px;
-    width: 100%;
     margin-bottom: 20px;
 }
 
-.send-button {
-    background-color: aqua;
+.button-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 20px;
 }
 
-.link-button {
-    background-color: rgb(90, 255, 90);
+.send-button {
+    background-color: green;
+    width: 300px;
+    font-family: 'Bangers', cursive;
+    font-size: 26px;
+    color: white;
+    border: none;
+}
+
+.generated-link {
+    text-decoration: underline;
+    color: rgb(145, 219, 253);
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }

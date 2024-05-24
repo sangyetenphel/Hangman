@@ -5,6 +5,7 @@ import { Keyboard } from "../components/Keyboard"
 import words from "../wordList.json"
 import { useParams } from "react-router-dom"
 import axios from "axios"
+import "../styles/HangmanGame.css"
 
 function getWord() {
     return words[Math.floor(Math.random() * words.length)]
@@ -82,29 +83,26 @@ function HangmanGame() {
 
 
     return (
-    <div
-        style={{
-        maxWidth: "800px",
-        display: "flex",
-        flexDirection: "column",
-        gap: "2rem",
-        margin: "0 auto",
-        alignItems: "center"
-        }}
-    >
-        <div style={{ fontSize: "2rem", textAlign: "center" }}>
+    <div className="hangman-game-container">
+        <div style={{ fontSize: "2rem", textAlign: "center", color: "yellow"}}>
         {isWinner && "Winner! - Refresh to try again"}
         {isLoser && "Nice Try - Refresh to try again"}
         </div>
-        <HangmanDrawing numberOfGuesses={incorrectLetters.length}/>
-        <HangmanWord reveal={isLoser} guessedLetters={guessedLetters} wordToGuess={wordToGuess}/>
+        <div className="hangman-word-container">
+            <div className="hangman-drawing">
+                <HangmanDrawing numberOfGuesses={incorrectLetters.length}/>
+            </div>
+            <HangmanWord reveal={isLoser} guessedLetters={guessedLetters} wordToGuess={wordToGuess}/>
+        </div>
         <div style={{ alignSelf: "stretch" }}>
-        <Keyboard
-        disabled={isWinner || isLoser}
-        activeLetters={guessedLetters.filter(letter => wordToGuess.includes(letter))}
-        inactiveLetters={incorrectLetters}
-        addGuessedLetter={addGuessedLetter}
-        />
+        <div className="keyboard">
+            <Keyboard
+                disabled={isWinner || isLoser}
+                activeLetters={guessedLetters.filter(letter => wordToGuess.includes(letter))}
+                inactiveLetters={incorrectLetters}
+                addGuessedLetter={addGuessedLetter}
+                />
+            </div>
         </div>
     </div>
     )
