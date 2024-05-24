@@ -128,3 +128,23 @@
     color: #70f8ff;
     text-decoration: none;
 }
+
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .container {
+        max-width: 100vw;
+        align-items: start;
+        justify-content: space-evenly;
+    }
+
+    .offline-online-container{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .dialog-info-box {
+        margin: 20px;
+        padding: 10px;
+    }
+}

@@ -40,4 +40,15 @@
     justify-content: center;
 }
 
+@media only screen and (max-width: 600px) {
+    .btn {
+      height: 50px;
+      width: 50px;
+      font-size: 18px;
+      padding: 0;
+      margin: 2px;
+      /* background-color: green; */
+    }
+}
+
 

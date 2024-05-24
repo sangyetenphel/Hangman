@@ -20,11 +20,36 @@
     align-items: center;
 }
 
-.hangman-drawing {
+/* .hangman-drawing {
     margin-right: 20%;
-}
+} */
 
 .keyboard {
     text-align: center;
     padding: 0 3.5%;
+}
+
+@media only screen and (max-width: 600px) {
+    body {
+        /* background-color: green; */
+    }
+
+    .hangman-game-container {
+        /* width: 100%; */
+        /* background-color: yellow; */
+        /* background-color: yellow; */
+    }
+
+    .hangman-word-container  {
+        /* width: 100%; */
+        display: block;
+        /* background-color: blue; */
+        margin: 0;
+        padding: 0;
+    }
+
+    .keyboard {
+        padding: 0;
+        /* margin: 0; */
+    }
 }

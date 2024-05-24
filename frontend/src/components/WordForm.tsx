@@ -16,7 +16,6 @@ function WordForm() {
 
     const handleSubmit = (e: FormEvent<HTMLFormElement>): void => {
         e.preventDefault();
-        alert(word)
         // api.post('/api/', {name, word, hint})
         api.post('/api/', {word})
             .then((response: AxiosResponse) => {
