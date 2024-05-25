@@ -1,0 +1,27 @@
+.hangmanwordContainer {
+    display: flex;
+    font-size: 6rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-family: monospace;
+}
+
+.key {
+    border-bottom: .1em solid white;
+    margin-right: 20px;
+}
+
+
+@media only screen and (max-width: 600px) {
+    .hangmanwordContainer {
+        font-size: 3rem;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .key {
+        /* border-bottom: 2px solid white; */
+        margin-right: 10px;
+        
+    }
+}

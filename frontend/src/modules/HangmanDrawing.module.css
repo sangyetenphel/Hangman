@@ -1,0 +1,150 @@
+.head {
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    border: 10px solid white;
+    position: absolute;
+    top: 45px;
+    right:-20px;
+}
+
+.body {
+    width: 10px;
+    height: 100px;
+    background: white;
+    position: absolute;
+    top: 90px;
+    right: 0;
+}
+
+.rightArm {
+    width: 100px;
+    height: 10px;
+    background: white;
+    position: absolute;
+    top: 130px;
+    right: -100px;
+    rotate: -30deg;
+    transform-origin: left bottom;
+}
+
+.leftArm {
+    width: 100px;
+    height: 10px;
+    background: white;
+    position: absolute;
+    top: 130px;
+    right: 10px;
+    rotate: 30deg;
+    transform-origin: right bottom;
+}
+
+.rightLeg {
+    width: 100px;
+    height: 10px;
+    background: white;
+    position: absolute;
+    top: 180px;
+    right: -90px;
+    rotate: 60deg;
+    transform-origin: left bottom;
+}
+
+.leftLeg {
+    width: 100px;
+    height: 10px;
+    background: white;
+    position: absolute;
+    top: 180px;
+    right: 0;
+    rotate: -60deg;
+    transform-origin: right bottom;
+}
+
+.hangmanDrawingContainer {
+   position: relative;
+}
+
+.hangmanRod1 {
+    height: 50px;
+    width: 10px;
+    background: white;
+    margin-left: 120px;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.hangmanRod2{
+    height: 10px;
+    width: 200px;
+    background: white;
+    margin-left: 120px;
+}
+
+.hangmanRod3 {
+    height: 400px;
+    width: 10px;
+    background: white;
+    margin-left: 120px;;
+}
+
+.hangmanRod4 {
+    height: 10px;
+    width: 250px;
+    background: white
+}
+
+@media only screen and (max-width: 600px) {
+    .head {
+        border: 5px solid white;
+        right: 38px;
+    }
+
+    .body {
+        width: 5px;
+        right: 60px;
+    }
+
+    .rightArm {
+        height: 5px;
+        right: -40px;
+    }
+
+    .leftArm {
+        height: 5px;
+        right: 65px;
+    }
+
+    .rightLeg {
+        height: 5px;
+        top: 180px;
+        right: -35px;
+    }
+
+    .leftLeg {
+        height: 5px;
+        right: 60px;
+    }
+
+    .hangmanRod1 {
+        width: 5px;
+        right: 60px;
+    }
+
+    .hangmanRod2{
+        height: 5px;
+        width: 150px;
+    }
+
+    .hangmanRod3 {
+        height: 300px;
+        width: 5px;
+    }
+
+    .hangmanRod4 {
+        height: 5px;
+        width: 250px;
+        margin-bottom: 50px;
+    }
+}
