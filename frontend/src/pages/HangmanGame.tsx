@@ -14,13 +14,14 @@ function getWord() {
 function HangmanGame() {
     const [wordToGuess, setWordtoGuess] = useState('')
     const { id } = useParams();
+    const apiUrl = ' https://hangman.us-cdp2.choreoapps.dev/hangman'
+    const baseURL = import.meta.env.VITE_HANGMAN_API_URL ? import.meta.env.VITE_HANGMAN_API_URL: apiUrl
 
     useEffect(() => {
         if (id) {
-            axios.get(`http://127.0.0.1:8000/hangman/${id}`)
+            axios.get(`${baseURL}/${id}`)
             .then(response => {
                 setWordtoGuess(response.data.word)
-                console.log("hererer", response.data)
             })
         }
         else {
