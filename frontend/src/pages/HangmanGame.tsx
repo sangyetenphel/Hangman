@@ -14,7 +14,9 @@ function getWord() {
 function HangmanGame() {
     const [wordToGuess, setWordtoGuess] = useState('')
     const { id } = useParams();
-    const apiUrl = ' https://hangman.us-cdp2.choreoapps.dev/hangman'
+    // SEND REQUEST TO BACKEND
+    // const apiUrl = 'https://hangman.us-cdp2.choreoapps.dev/hangman'
+    const apiUrl = 'https://796fd882-42bc-49da-ba5a-67560d532b4d-dev.e1-us-cdp-2.choreoapis.dev/hangman/backend/hangman-be2/v1'
     const baseURL = import.meta.env.VITE_HANGMAN_API_URL ? import.meta.env.VITE_HANGMAN_API_URL: apiUrl
 
     useEffect(() => {

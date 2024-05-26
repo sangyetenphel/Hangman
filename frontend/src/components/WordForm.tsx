@@ -14,7 +14,7 @@ function WordForm() {
     // const [hint, setHint] = useState<string>("")
     const [linkToShare, setLinkToShare] = useState<string>("")
 
-    const onlineURL = ' https://hangman.us-cdp2.choreoapps.dev/hangman'
+    const onlineURL = 'https://hangman.us-cdp2.choreoapps.dev/hangman'
     const baseURL = import.meta.env.VITE_LOCAL_FRONTEND_URL ? import.meta.env.VITE_LOCAL_FRONTEND_URL: onlineURL
 
     const handleSubmit = (e: FormEvent<HTMLFormElement>): void => {
