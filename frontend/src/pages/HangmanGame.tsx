@@ -24,6 +24,7 @@ function HangmanGame() {
             axios.get(`${baseURL}/${id}`)
             .then(response => {
                 setWordtoGuess(response.data.word)
+                alert(response.data.word)
             })
         }
         else {
