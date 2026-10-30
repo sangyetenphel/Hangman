@@ -1,9 +1,8 @@
 import axios from "axios"
-const apiUrl = '/choreo-apis/hangman/backend/hangman-be2/v1'
 
+// Backend address; set VITE_API_URL in frontend/.env when it isn't running locally
 const api = axios.create({
-    baseURL: import.meta.env.VITE_API_URL ? import.meta.env.VITE_API_URL: apiUrl,
+    baseURL: import.meta.env.VITE_API_URL || "http://localhost:8000",
 })
-console.log(import.meta.env.VITE_API_URL, "dsfa")
 
 export default api

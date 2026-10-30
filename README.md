@@ -26,7 +26,7 @@ Friend opens the link
 ```
 
 - **Frontend (`frontend/`):** React 18 with TypeScript and React Router, built with Vite. `pages/` holds the home, online and game screens; `components/` holds the drawing, the word display, the keyboard and the share form. Requests go through Axios.
-- **Backend (`backend/`):** Django 5 with Django REST Framework. The `api` app stores words (`Word` model, `WordView` viewset at `/api/`), and the `hangman` app returns a single word by id at `/hangman/<id>`. Words are stored in PostgreSQL.
+- **Backend (`backend/`):** Django 5 with Django REST Framework. The `api` app stores words (`Word` model). Its `/api/` endpoint only accepts new words, which are validated as letters only and saved in lowercase. It can't be used to list, edit or delete them, so nobody can see other players' answers. The `hangman` app returns a single word by id at `/hangman/<id>`. Words are stored in PostgreSQL.
 
 ## Running it locally
 
@@ -49,7 +49,16 @@ DB_USER=your_db_user
 DB_PWD=your_db_password
 DB_HOST=localhost
 DB_PORT=5432
+DJANGO_DEBUG=True
 ```
+
+`DJANGO_DEBUG=True` is for local development only. Anywhere public, leave it off and set:
+
+| Variable | Purpose |
+|---|---|
+| `DJANGO_SECRET_KEY` | A long random string, generated with `python -c "from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())"` |
+| `DJANGO_ALLOWED_HOSTS` | The backend's domain(s), comma-separated (default `localhost,127.0.0.1`) |
+| `CORS_ALLOWED_ORIGINS` | The frontend's address(es), comma-separated (default `http://localhost:5173`) |
 
 Then create the tables and start the server:
 
@@ -67,12 +76,10 @@ cd frontend
 npm install
 ```
 
-Create `frontend/.env` so the app talks to your local backend:
+By default the app talks to the backend at `http://localhost:8000`. If yours runs elsewhere, create `frontend/.env` with:
 
 ```
-VITE_API_URL=http://localhost:8000
-VITE_HANGMAN_API_URL=http://localhost:8000/hangman
-VITE_LOCAL_FRONTEND_URL=http://localhost:5173/hangman
+VITE_API_URL=https://your-backend.example.com
 ```
 
 Then start it:
@@ -82,6 +89,15 @@ npm run dev
 ```
 
 Open http://localhost:5173. Offline mode works without the backend; online mode needs both running.
+
+### Running the tests
+
+```bash
+cd backend
+python manage.py test
+```
+
+The tests cover creating words (including rejecting empty, non-letter and over-long words, and storing words in lowercase), the shared-game endpoint, and checking that words can't be listed, edited or deleted through the API.
 
 ## Built with
 
