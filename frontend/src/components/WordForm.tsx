@@ -14,8 +14,8 @@ function WordForm() {
     // const [hint, setHint] = useState<string>("")
     const [linkToShare, setLinkToShare] = useState<string>("")
 
-    const onlineURL = 'https://hangman.us-cdp2.choreoapps.dev/hangman'
-    const baseURL = import.meta.env.VITE_LOCAL_FRONTEND_URL ? import.meta.env.VITE_LOCAL_FRONTEND_URL: onlineURL
+    // Share links point at whichever site the game is running on
+    const baseURL = `${window.location.origin}/hangman`
 
     const handleSubmit = (e: FormEvent<HTMLFormElement>): void => {
         e.preventDefault();
@@ -31,7 +31,10 @@ function WordForm() {
                 }
                 else alert("Failed to generate the word!")
             })
-            .catch((error: AxiosError) => alert(error))
+            .catch((error: AxiosError<{ word?: string[] }>) => {
+                const message = error.response?.data?.word?.[0]
+                alert(message ?? "Couldn't create the word. Please try again.")
+            })
     }
 
     return (

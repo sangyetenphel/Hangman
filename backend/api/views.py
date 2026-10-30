@@ -1,9 +1,10 @@
-from django.shortcuts import render
-from rest_framework import viewsets
+from rest_framework import mixins, viewsets
 from .models import Word
 from .serializers import WordSerializer
 
-# Create your views here.
-class WordView(viewsets.ModelViewSet):
+
+# Only creating words is allowed. Listing, editing or deleting them would let
+# anyone see every answer or wipe other players' games.
+class WordView(mixins.CreateModelMixin, viewsets.GenericViewSet):
     queryset = Word.objects.all()
     serializer_class = WordSerializer

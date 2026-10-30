@@ -4,7 +4,7 @@ import { HangmanWord } from "../components/HangmanWord"
 import { Keyboard } from "../components/Keyboard"
 import words from "../wordList.json"
 import { useParams } from "react-router-dom"
-import axios from "axios"
+import api from "../api"
 import "../styles/HangmanGame.css"
 
 function getWord() {
@@ -14,16 +14,19 @@ function getWord() {
 function HangmanGame() {
     const [wordToGuess, setWordtoGuess] = useState('')
     const { id } = useParams();
-    // SEND REQUEST TO BACKEND
-    // const apiUrl = 'https://hangman.us-cdp2.choreoapps.dev/hangman'
-    const apiUrl = 'https://796fd882-42bc-49da-ba5a-67560d532b4d-dev.e1-us-cdp-2.choreoapis.dev/hangman/backend/hangman-be2/v1/hangman'
-    const baseURL = import.meta.env.VITE_HANGMAN_API_URL ? import.meta.env.VITE_HANGMAN_API_URL: apiUrl
+    const [loadError, setLoadError] = useState('')
 
     useEffect(() => {
         if (id) {
-            axios.get(`${baseURL}/${id}`)
+            // SEND REQUEST TO BACKEND
+            api.get(`/hangman/${id}`)
             .then(response => {
                 setWordtoGuess(response.data.word)
+            })
+            .catch(error => {
+                setLoadError(error.response?.status === 404
+                    ? "This game link doesn't exist. Ask your friend for a new one."
+                    : "Couldn't load this game. Please try again later.")
             })
         }
         else {
@@ -38,7 +41,7 @@ function HangmanGame() {
     )
 
     const isLoser = incorrectLetters.length >= 6
-    const isWinner = wordToGuess.split("").every(letter => guessedLetters.includes(letter))
+    const isWinner = wordToGuess !== "" && wordToGuess.split("").every(letter => guessedLetters.includes(letter))
 
     const addGuessedLetter = useCallback(
     (letter: string) => {
@@ -56,7 +59,6 @@ function HangmanGame() {
 
         e.preventDefault()
         addGuessedLetter(key)
-        console.log("guessed letters", guessedLetters)
     }
 
     document.addEventListener("keypress", handler)
@@ -64,7 +66,7 @@ function HangmanGame() {
     return () => {
         document.removeEventListener("keypress", handler)
     }
-    }, [guessedLetters])
+    }, [addGuessedLetter])
 
 
     useEffect(() => {
@@ -88,6 +90,7 @@ function HangmanGame() {
     return (
     <div className="hangman-game-container">
         <div style={{ fontSize: "2rem", textAlign: "center", color: "yellow"}}>
+        {loadError}
         {isWinner && "Winner! - Refresh to try again"}
         {isLoser && "Nice Try - Refresh to try again"}
         </div>
