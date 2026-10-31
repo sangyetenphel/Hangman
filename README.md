@@ -107,4 +107,4 @@ The tests cover creating words (including rejecting empty, non-letter and over-l
 
 The app was originally deployed on WSO2 Choreo; that deployment is no longer running.
 
-Created by [Sangye Tenphel](https://sangyetenphel.com/), 2024.
+Created by [Sangye Tengkhar](https://sangyetengkhar.com/), 2024.
