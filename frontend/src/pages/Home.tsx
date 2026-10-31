@@ -27,7 +27,7 @@ function Home() {
                 </div>
             </div>
             <div className='creator'>
-                <p>Created by <a href='https://sangyetenphel.com/'>Sangye Tenphel</a></p>
+                <p>Created by <a href='https://sangyetengkhar.com/'>Sangye Tenphel</a></p>
             </div>
         </div>
     )
